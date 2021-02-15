@@ -1,1 +1,1 @@
-# JaromirONetBeans
+# JaromirO Repo Deskoptowe
