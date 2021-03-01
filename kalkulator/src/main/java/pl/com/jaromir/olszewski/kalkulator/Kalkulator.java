@@ -5,6 +5,9 @@
  */
 package pl.com.jaromir.olszewski.kalkulator;
 
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lawio
@@ -29,6 +32,7 @@ public class Kalkulator extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField12 = new javax.swing.JTextField();
+        jMenu1 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jtab = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -50,8 +54,14 @@ public class Kalkulator extends javax.swing.JFrame {
         jbc = new javax.swing.JButton();
         jbrow = new javax.swing.JButton();
         jbpot = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenufile = new javax.swing.JMenu();
+        jMenutolls = new javax.swing.JMenu();
+        jmenudni = new javax.swing.JMenuItem();
 
         jTextField12.setText("przelicz");
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -175,7 +185,6 @@ public class Kalkulator extends javax.swing.JFrame {
 
         jbdziel.setBackground(new java.awt.Color(255, 153, 0));
         jbdziel.setText("/");
-        jbdziel.setMaximumSize(new java.awt.Dimension(37, 23));
         jbdziel.setPreferredSize(new java.awt.Dimension(41, 23));
         jbdziel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +193,6 @@ public class Kalkulator extends javax.swing.JFrame {
         });
 
         jbc.setText("c");
-        jbc.setMaximumSize(new java.awt.Dimension(37, 23));
         jbc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbcActionPerformed(evt);
@@ -301,6 +309,23 @@ public class Kalkulator extends javax.swing.JFrame {
                     .addComponent(jbpierw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 108, Short.MAX_VALUE))
         );
+
+        jMenufile.setText("File");
+        jMenuBar1.add(jMenufile);
+
+        jMenutolls.setText("tolls");
+
+        jmenudni.setText("ile dni");
+        jmenudni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenudniActionPerformed(evt);
+            }
+        });
+        jMenutolls.add(jmenudni);
+
+        jMenuBar1.add(jMenutolls);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -455,6 +480,11 @@ public class Kalkulator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtabActionPerformed
 
+    private void jmenudniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenudniActionPerformed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyy");
+        JOptionPane.showInputDialog("Wprowac datę ");
+    }//GEN-LAST:event_jmenudniActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -492,6 +522,10 @@ public class Kalkulator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenufile;
+    private javax.swing.JMenu jMenutolls;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JButton jb0;
@@ -512,6 +546,7 @@ public class Kalkulator extends javax.swing.JFrame {
     private javax.swing.JButton jbpierw;
     private javax.swing.JButton jbpot;
     private javax.swing.JButton jbrow;
+    private javax.swing.JMenuItem jmenudni;
     private javax.swing.JTextField jtab;
     // End of variables declaration//GEN-END:variables
 }
