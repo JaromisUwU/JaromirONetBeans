@@ -5,6 +5,7 @@
  */
 package pl.com.jaromir.olszewski.kalkulator;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
@@ -482,7 +483,10 @@ public class Kalkulator extends javax.swing.JFrame {
 
     private void jmenudniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenudniActionPerformed
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyy");
-        JOptionPane.showInputDialog("Wprowac datę ");
+        String data = JOptionPane.showInputDialog("Wprowac datę ");
+ //       System.out.print(data);
+        LocalDate ldnow = LocalDate.now();
+        LocalDate ldinput = LocalDate.parse(data, formatter);
     }//GEN-LAST:event_jmenudniActionPerformed
 
     /**
