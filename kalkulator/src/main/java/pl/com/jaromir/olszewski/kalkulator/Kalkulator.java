@@ -7,6 +7,7 @@ package pl.com.jaromir.olszewski.kalkulator;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
 /**
@@ -487,6 +488,10 @@ public class Kalkulator extends javax.swing.JFrame {
  //       System.out.print(data);
         LocalDate ldnow = LocalDate.now();
         LocalDate ldinput = LocalDate.parse(data, formatter);
+ //       System.out.println(ldnow+" "+ldinput);
+ 
+        long days = ChronoUnit.DAYS.between(ldinput, ldnow);
+        System.out.println("ilosc dni"+days);
     }//GEN-LAST:event_jmenudniActionPerformed
 
     /**
