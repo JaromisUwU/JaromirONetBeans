@@ -5,11 +5,16 @@
  */
 package pl.com.jaromir.olszewski.zakupy;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author lawio
  */
 public class Kałkulator extends javax.swing.JFrame {
+
+    private Object table;
 
     /**
      * Creates new form Kałkulator
@@ -17,6 +22,8 @@ public class Kałkulator extends javax.swing.JFrame {
     public Kałkulator() {
         initComponents();
     }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,28 +35,41 @@ public class Kałkulator extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        CoKupiles = new javax.swing.JTextField();
+        podajwartosc = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
+        J_Data = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jTextField4 = new javax.swing.JTextField();
+        DzisZakupy = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 451, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Lista zakupów", jPanel2);
 
         jLabel1.setText("wpisz co kupiłeś");
 
@@ -59,7 +79,30 @@ public class Kałkulator extends javax.swing.JFrame {
 
         jLabel4.setText("Data zakupu");
 
+        CoKupiles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CoKupilesActionPerformed(evt);
+            }
+        });
+
+        podajwartosc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                podajwartoscActionPerformed(evt);
+            }
+        });
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        J_Data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                J_DataActionPerformed(evt);
+            }
+        });
 
         jToggleButton1.setText("Zapis");
 
@@ -76,11 +119,11 @@ public class Kałkulator extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
+                    .addComponent(podajwartosc))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,13 +136,13 @@ public class Kałkulator extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(J_Data, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DzisZakupy, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -125,10 +168,10 @@ public class Kałkulator extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CoKupiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(podajwartosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(J_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jToggleButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
@@ -136,7 +179,7 @@ public class Kałkulator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(DzisZakupy, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel6)
@@ -153,19 +196,6 @@ public class Kałkulator extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("wprowadz zakupy", jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 537, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 451, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Lista zakupów", jPanel2);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -188,6 +218,26 @@ public class Kałkulator extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void podajwartoscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_podajwartoscActionPerformed
+       String Enternumber = DzisZakupy.getText() + CoKupiles.getText();
+        DzisZakupy.setText( Enternumber);
+    }//GEN-LAST:event_podajwartoscActionPerformed
+
+    private void CoKupilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoKupilesActionPerformed
+        String Enternumber = DzisZakupy.getText() + podajwartosc.getText();
+        DzisZakupy.setText( Enternumber);
+    }//GEN-LAST:event_CoKupilesActionPerformed
+
+    private void J_DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_DataActionPerformed
+        String Enternumber = DzisZakupy.getText() + J_Data.getText();
+        DzisZakupy.setText( Enternumber);
+    }//GEN-LAST:event_J_DataActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String Enternumber = DzisZakupy.getText() + J_Data.getText();
+        DzisZakupy.setText( Enternumber);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,14 +267,61 @@ public class Kałkulator extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Kałkulator().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Kałkulator().setVisible(true);
         });
     }
+    //nie działa ale dowód pracy na lekcji
+    // na lekcji w poniedziałek miałem na początku internetu
+    //i nie zabardzo wiem jak sie dodaje tego key listenera 
+    // moze przez to nie działa
+    
+           // private void addKeyListenerTopodajwartosc(){
+      //  podajwartosc.addKeyListener(new KeyListener(){            
+     //   public void keyTyped(KeyEvent e){
+          //  char ch = e getKeyChar();
+          //  if(ch>='0'&&ch<='9'||ch == KeyEvent.VK_BACK_SPACE){//większe lob rowne 0 mniejsze lob rowne 9
+           // podajwartosc.setEditable(tue);
+            //    System.out.println("Naciśnięto Cyfrę"+ch);
+           // }else{
+              //  podajwartosc.setEditable(false);
+               // }
+          //  }
+       // });
+      // }
+        
+                //  private void addKeyListenerToJ_Data(){
+       // J_Data.addKeyListener(new KeyListener(){            
+     //   public void keyTyped(KeyEvent e){
+          //  char ch = e getKeyChar();
+          //  if(ch>='0'&&ch<='9'||ch == KeyEvent.VK_BACK_SPACE){//większe lob rowne 0 mniejsze lob rowne 9
+           // J_Data.setEditable(tue);
+            //    System.out.println("Naciśnięto Cyfrę"+ch);
+           // }else{
+              //  J_Data.setEditable(false);
+               // }
+          //  }
+       // });
+       
+             public void keyReleased(KeyEvent ke) 
+{
+    if(ke.getKeyCode() == KeyEvent.VK_BACK_SPACE)
+    {  
+        //code to execute if backspace is pressed
+    }
+
+    if(ke.getKeyCode() == KeyEvent.VK_ESCAPE)
+    {
+        //code to execute if escape is pressed
+    }
+}
+                  
+          
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CoKupiles;
+    private javax.swing.JTextField DzisZakupy;
+    private javax.swing.JTextField J_Data;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -239,12 +336,9 @@ public class Kałkulator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField podajwartosc;
     // End of variables declaration//GEN-END:variables
 }
