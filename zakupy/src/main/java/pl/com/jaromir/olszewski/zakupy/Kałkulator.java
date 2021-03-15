@@ -315,6 +315,22 @@ public class Kałkulator extends javax.swing.JFrame {
         //code to execute if escape is pressed
     }
 }
+             private void addKeyListenerData(){
+      J_Data.addKeyListener(new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String temp = J_Data.getText();
+                char ch = e.getKeyChar();
+                if((ch >= '0' && ch <= '9' || ch==KeyEvent.VK_BACK_SPACE) &&
+                        (temp.length() < 10 || ch==KeyEvent.VK_BACK_SPACE)){
+                    J_Data.setEditable(true);
+                    if((temp.length() == 4 || temp.length() == 7) && ch != KeyEvent.VK_BACK_SPACE){
+                        J_Data.setText(temp+"-");
+                    }
+                }else{
+                    J_Data.setEditable(false);
+                }
+            }
                   
           
 
