@@ -7,6 +7,13 @@ package pl.com.jaromir.olszewski.zakupy;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -21,8 +28,43 @@ public class Kałkulator extends javax.swing.JFrame {
      */
     public Kałkulator() {
         initComponents();
+        addTooltipToElements();
     }
+    private void addTooltipToElements(){
+       CoKupiles.setToolTipText("<html>"
+                +"<h3>Wprowadz tekst</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+       podajwartosc.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+       J_Data.setToolTipText("<html>"
+                +"<h3>Wprowadz datę</h3>"
+                +"<p>wg formatu r,m,d</p>" 
+                +"</html>");
+        DzisZakupy.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+        jTextField6.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+        jTextField5.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+        jToggleButton1.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
+        jComboBox1.setToolTipText("<html>"
+                +"<h3>Wprowadz wartosc</h3>"
+                +"<p>Nie uzywaj polskich znakow</p>"
+                +"</html>");
     
+    }
   
 
     /**
@@ -220,23 +262,20 @@ public class Kałkulator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void podajwartoscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_podajwartoscActionPerformed
-       String Enternumber = DzisZakupy.getText() + CoKupiles.getText();
-        DzisZakupy.setText( Enternumber);
+ 
     }//GEN-LAST:event_podajwartoscActionPerformed
 
     private void CoKupilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoKupilesActionPerformed
-        String Enternumber = DzisZakupy.getText() + podajwartosc.getText();
-        DzisZakupy.setText( Enternumber);
+        
+        
     }//GEN-LAST:event_CoKupilesActionPerformed
 
     private void J_DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_DataActionPerformed
-        String Enternumber = DzisZakupy.getText() + J_Data.getText();
-        DzisZakupy.setText( Enternumber);
+        
     }//GEN-LAST:event_J_DataActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String Enternumber = DzisZakupy.getText() + J_Data.getText();
-        DzisZakupy.setText( Enternumber);
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
@@ -315,22 +354,74 @@ public class Kałkulator extends javax.swing.JFrame {
         //code to execute if escape is pressed
     }
 }
-             private void addKeyListenerData(){
-      J_Data.addKeyListener(new KeyListener(){
-            @Override
-            public void keyTyped(KeyEvent e) {
-                String temp = J_Data.getText();
-                char ch = e.getKeyChar();
-                if((ch >= '0' && ch <= '9' || ch==KeyEvent.VK_BACK_SPACE) &&
-                        (temp.length() < 10 || ch==KeyEvent.VK_BACK_SPACE)){
-                    J_Data.setEditable(true);
-                    if((temp.length() == 4 || temp.length() == 7) && ch != KeyEvent.VK_BACK_SPACE){
-                        J_Data.setText(temp+"-");
-                    }
-                }else{
-                    J_Data.setEditable(false);
-                }
+            // private void addKeyListenerData(){
+//      J_Data.addKeyListener(new KeyListener(){
+           // @Override
+           // public void keyTyped(KeyEvent e) {
+           //     String temp = J_Data.getText();
+              //  char ch = e.getKeyChar();
+             //   if((ch >= '0' && ch <= '9' || ch==KeyEvent.VK_BACK_SPACE) &&
+                  //      (temp.length() < 10 || ch==KeyEvent.VK_BACK_SPACE)){
+                  //  J_Data.setEditable(true);
+                  //  if((temp.length() == 4 || temp.length() == 7) && ch != KeyEvent.VK_BACK_SPACE){
+                  //  }
+              //  }else{
+                //    J_Data.setEditable(false);
+              //  }
+           // }
+             private void saveSettings(){
+        try{
+           File f = new File("CoKupiles_MJ.txt");  
+           FileWriter fw = new FileWriter(f);          
+            String a = (String) CoKupiles.getText();
+            String b = (String) podajwartosc.getText();
+            String c = (String) jComboBox1.getSelectedItem();
+            String d = (String) J_Data.getText();
+            
+            fw.write(""+a+"-"+b+"-"+c+"-"+d);
+            fw.close();
+           }catch(IOException e){
+            System.out.println("Błąd: "+e.toString());
+           }
+    }
+
+    private static class ArticleTypeUtils {
+
+        public ArticleTypeUtils() {
+        }
+    }
+             public class YourController {
+//Combobox
+
+ComboBox<String> jComboBox1;
+
+//Initialize FXML
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone(); //To change body of generated methods, choose Tools | Templates.
+        }
+
+
+    //Read items from txt File
+    BufferedReader br = new BufferedReader(new FileReader("/items.txt"));
+    private void filljCBProducts(){
+        ArticleTypeUtils atu = new ArticleTypeUtils();
+        //TODO read procucts from file!!!
+        jComboBox1.removeAllItems();
+        try {
+            Scanner sc = new Scanner(new File("produkty.txt"));
+            while(sc.hasNext()){
+                String item = sc.nextLine();
+                jComboBox1.addItem(item);
             }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.toString());
+        }
+    }
+
+
+
                   
           
 
@@ -357,4 +448,4 @@ public class Kałkulator extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField podajwartosc;
     // End of variables declaration//GEN-END:variables
-}
+    }
