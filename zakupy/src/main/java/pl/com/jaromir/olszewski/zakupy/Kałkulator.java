@@ -7,13 +7,9 @@ package pl.com.jaromir.olszewski.zakupy;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  *
@@ -262,20 +258,24 @@ public class Kałkulator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void podajwartoscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_podajwartoscActionPerformed
- 
+       String Enternumber = DzisZakupy.getText() + CoKupiles.getText();
+        DzisZakupy.setText( Enternumber);
     }//GEN-LAST:event_podajwartoscActionPerformed
 
     private void CoKupilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoKupilesActionPerformed
-        
+        String Enternumber = DzisZakupy.getText() + podajwartosc.getText();
+        DzisZakupy.setText( Enternumber);
         
     }//GEN-LAST:event_CoKupilesActionPerformed
 
     private void J_DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J_DataActionPerformed
-        
+        String Enternumber = DzisZakupy.getText() + J_Data.getText();
+        DzisZakupy.setText( Enternumber);
     }//GEN-LAST:event_J_DataActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
+        String Enternumber = DzisZakupy.getText() + J_Data.getText();
+        DzisZakupy.setText( Enternumber);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
@@ -384,44 +384,25 @@ public class Kałkulator extends javax.swing.JFrame {
             System.out.println("Błąd: "+e.toString());
            }
     }
-
-    private static class ArticleTypeUtils {
-
-        public ArticleTypeUtils() {
-        }
-    }
-             public class YourController {
-//Combobox
-
-ComboBox<String> jComboBox1;
-
-//Initialize FXML
-
-        @Override
-        protected Object clone() throws CloneNotSupportedException {
-            return super.clone(); //To change body of generated methods, choose Tools | Templates.
-        }
-
-
-    //Read items from txt File
-    BufferedReader br = new BufferedReader(new FileReader("/items.txt"));
-    private void filljCBProducts(){
+             private void jComboBox1(){
+                 //ty kiedyś będzie wczytanie do comboboxa
+                 
+                 /*private void filljCBProducts(){
         ArticleTypeUtils atu = new ArticleTypeUtils();
         //TODO read procucts from file!!!
-        jComboBox1.removeAllItems();
+        jCBProducts.removeAllItems();
         try {
             Scanner sc = new Scanner(new File("produkty.txt"));
             while(sc.hasNext()){
                 String item = sc.nextLine();
-                jComboBox1.addItem(item);
+                jCBProducts.addItem(item);
             }
         } catch (FileNotFoundException ex) {
             System.out.println(ex.toString());
         }
-    }
-
-
-
+                 nie dz9ala
+    }*/
+             }
                   
           
 
@@ -448,4 +429,4 @@ ComboBox<String> jComboBox1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField podajwartosc;
     // End of variables declaration//GEN-END:variables
-    }
+}
