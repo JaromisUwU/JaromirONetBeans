@@ -5,6 +5,11 @@
  */
 package pl.com.jaromir.olszewski.rejestracja;
 
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author lawio
@@ -30,9 +35,9 @@ public class logowanie extends javax.swing.JFrame {
         Login = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        JHasloLogin = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        JEmailLogin = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         JLogin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -40,11 +45,11 @@ public class logowanie extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        JRejestracja = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        Zajerestruj = new javax.swing.JButton();
+        NazwaR = new javax.swing.JTextField();
+        HasloR = new javax.swing.JTextField();
+        PotwierdzHasłoR = new javax.swing.JTextField();
+        EmailR = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,11 +61,11 @@ public class logowanie extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Login ");
 
-        jTextField5.setBackground(new java.awt.Color(231, 255, 140));
+        JHasloLogin.setBackground(new java.awt.Color(231, 255, 140));
 
         jLabel7.setText("hasło");
 
-        jTextField6.setBackground(new java.awt.Color(231, 255, 140));
+        JEmailLogin.setBackground(new java.awt.Color(231, 255, 140));
 
         jLabel8.setText("email");
 
@@ -86,8 +91,8 @@ public class logowanie extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
                                 .addGap(0, 548, Short.MAX_VALUE))
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)))
+                            .addComponent(JHasloLogin)
+                            .addComponent(JEmailLogin)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -107,11 +112,11 @@ public class logowanie extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JHasloLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(JLogin)
                 .addContainerGap(196, Short.MAX_VALUE))
@@ -129,21 +134,21 @@ public class logowanie extends javax.swing.JFrame {
 
         jLabel4.setText("potwierdz hasło");
 
-        JRejestracja.setBackground(new java.awt.Color(136, 255, 255));
-        JRejestracja.setText("Rejestracja");
-        JRejestracja.addActionListener(new java.awt.event.ActionListener() {
+        Zajerestruj.setBackground(new java.awt.Color(136, 255, 255));
+        Zajerestruj.setText("Rejestracja");
+        Zajerestruj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JRejestracjaActionPerformed(evt);
+                ZajerestrujActionPerformed(evt);
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(136, 255, 255));
+        NazwaR.setBackground(new java.awt.Color(136, 255, 255));
 
-        jTextField2.setBackground(new java.awt.Color(136, 255, 255));
+        HasloR.setBackground(new java.awt.Color(136, 255, 255));
 
-        jTextField3.setBackground(new java.awt.Color(136, 255, 255));
+        PotwierdzHasłoR.setBackground(new java.awt.Color(136, 255, 255));
 
-        jTextField4.setBackground(new java.awt.Color(136, 255, 255));
+        EmailR.setBackground(new java.awt.Color(136, 255, 255));
 
         jLabel5.setText("Rejestracja");
 
@@ -154,8 +159,8 @@ public class logowanie extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2)
+                    .addComponent(NazwaR, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(HasloR)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -164,21 +169,20 @@ public class logowanie extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel2))
                                 .addGap(0, 498, Short.MAX_VALUE))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(PotwierdzHasłoR, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
-                    .addComponent(jTextField4)
+                    .addComponent(EmailR)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JRejestracja)))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Zajerestruj)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,21 +192,21 @@ public class logowanie extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NazwaR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmailR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HasloR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PotwierdzHasłoR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(JRejestracja)
+                .addComponent(Zajerestruj)
                 .addGap(40, 40, 40))
         );
 
@@ -224,12 +228,33 @@ public class logowanie extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JRejestracjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRejestracjaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JRejestracjaActionPerformed
+    private void ZajerestrujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZajerestrujActionPerformed
+        String nazwaR=NazwaR.getText();
+        String emailR=EmailR.getText();
+        String hasloR=HasloR.getText();
+        String phasloR=PotwierdzHasłoR.getText();
+        try
+        {
+                FileWriter Writer=new FileWriter("sekretnehasla.csv",true);
+                Writer.write(""+nazwaR+""+emailR+""+hasloR);
+                Writer.write(System.getProperty("line.separator"));
+                Writer.close();
+                JOptionPane.showMessageDialog(null,"za taką rejestrację to 2+");
+                setVisible(false);
+                
+        }
+        catch(Exception e)
+        {
+                JOptionPane.showMessageDialog(null,"Error");
+
+        }
+    }//GEN-LAST:event_ZajerestrujActionPerformed
 
     private void JLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JLoginActionPerformed
-        // TODO add your handling code here:
+        String emailL=JEmailLogin.getText();
+        String hasloL=JHasloLogin.getText();
+     
+       
     }//GEN-LAST:event_JLoginActionPerformed
 
     /**
@@ -266,11 +291,19 @@ public class logowanie extends javax.swing.JFrame {
             }
         });
     }
-
+       
+       
+      
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField EmailR;
+    private javax.swing.JTextField HasloR;
+    private javax.swing.JTextField JEmailLogin;
+    private javax.swing.JTextField JHasloLogin;
     private javax.swing.JButton JLogin;
-    private javax.swing.JButton JRejestracja;
     private javax.swing.JTabbedPane Login;
+    private javax.swing.JTextField NazwaR;
+    private javax.swing.JTextField PotwierdzHasłoR;
+    private javax.swing.JButton Zajerestruj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -281,11 +314,5 @@ public class logowanie extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
