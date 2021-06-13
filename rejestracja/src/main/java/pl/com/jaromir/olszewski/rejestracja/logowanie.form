@@ -74,8 +74,8 @@
                                       </Group>
                                       <EmptySpace min="0" pref="548" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="JHasloLogin" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JEmailLogin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="HasloLogin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="EmailLogin" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -104,11 +104,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JEmailLogin" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="EmailLogin" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JHasloLogin" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="HasloLogin" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="JLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="196" max="32767" attributes="0"/>
@@ -125,7 +125,7 @@
                 <Property name="text" type="java.lang.String" value="Login "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JHasloLogin">
+            <Component class="javax.swing.JTextField" name="HasloLogin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8c" green="ff" red="e7" type="rgb"/>
@@ -137,7 +137,7 @@
                 <Property name="text" type="java.lang.String" value="has&#x142;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JEmailLogin">
+            <Component class="javax.swing.JTextField" name="EmailLogin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8c" green="ff" red="e7" type="rgb"/>
@@ -182,8 +182,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="NazwaR" alignment="1" max="32767" attributes="0"/>
-                          <Component id="HasloR" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nazwa" alignment="1" max="32767" attributes="0"/>
+                          <Component id="haslo" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -194,11 +194,11 @@
                                       </Group>
                                       <EmptySpace min="0" pref="498" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="PotwierdzHasłoR" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="phaslo" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Component id="EmailR" alignment="0" max="32767" attributes="0"/>
+                          <Component id="email" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" pref="82" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -225,19 +225,19 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="NazwaR" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="nazwa" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="EmailR" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="email" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="HasloR" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="haslo" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="PotwierdzHasłoR" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="phaslo" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace pref="47" max="32767" attributes="0"/>
                       <Component id="Zajerestruj" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -277,28 +277,28 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZajerestrujActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="NazwaR">
+            <Component class="javax.swing.JTextField" name="nazwa">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="88" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="HasloR">
+            <Component class="javax.swing.JTextField" name="haslo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="88" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="PotwierdzHas&#x142;oR">
+            <Component class="javax.swing.JTextField" name="phaslo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="88" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="EmailR">
+            <Component class="javax.swing.JTextField" name="email">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="88" type="rgb"/>
